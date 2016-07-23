@@ -57,14 +57,14 @@ class GtkUI(GtkPluginBase):
 
         EntryMenu = component.get("MenuBar").torrentmenu_glade.get_widget("torrent_menu")
 
-        self.seperator = gtk.SeparatorMenuItem()
+        self.sep = gtk.SeparatorMenuItem()
         self.item = gtk.MenuItem(_("_Send to Rtorrent"))
         self.item.connect("activate", self.on_menuitem_send_to_rtorrent)
 
-        EntryMenu.append(self.seperator)
+        EntryMenu.append(self.sep)
         EntryMenu.append(self.item)
 
-        self.seperator.show()
+        self.sep.show()
         self.item.show()
 
 
@@ -76,7 +76,7 @@ class GtkUI(GtkPluginBase):
         EntryMenu = component.get("MenuBar").torrentmenu_glade.get_widget("torrent_menu")
 
         EntryMenu.remove(self.item)
-        EntryMenu.remove(self.seperator)
+        EntryMenu.remove(self.sep)
 
     def on_apply_prefs(self):
         log.debug("applying prefs for RtorrentDelugeBridge")
